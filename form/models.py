@@ -4,7 +4,7 @@ from jalali_date import datetime2jalali, date2jalali
 activate=(
 ("s","سازنده"),
 ("ma","مصالح فروش"),
-("am","املاکی"),
+("am","املاک"),
 ("sa","سایر"),
 )
 
