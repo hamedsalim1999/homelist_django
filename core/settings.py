@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-1d0moavau2wc6f#3@2b9b1g+red0i(z-^8q033u&q4ryx7y7lp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0','mysite-dbtest.fandogh.cloud']
 
 
 # Application definition
