@@ -2,9 +2,15 @@ from django.contrib import admin
 from .models import Form
 import csv
 from django.http import HttpResponse
-from django_jalali.admin.filters import JDateFieldListFilter
+from django.shortcuts import render
 
-#you need import this for adding jalali calander widget
+
+@admin.action(description='چاپ')
+def customer_list(self,request, queryset):
+    meta = self.model._meta
+    field_names = queryset
+    customers = field_names
+    return render(request, 'form_list.html', {'form': customers})
 
 @admin.action(description='خروجی csv')
 def export_as_csv(self, request, queryset):
@@ -23,11 +29,11 @@ def export_as_csv(self, request, queryset):
     return response
 @admin.register(Form)
 class FromAdmin(admin.ModelAdmin):
-    readonly_fields = ('id',)
+    readonly_fields = ('id','get_created_jalali')
     fields  = (
             ('id'),
         
-       
+            ('get_created_jalali'),
         
             ('region', 'district', 'part')
         ,
@@ -47,6 +53,13 @@ class FromAdmin(admin.ModelAdmin):
     search_fields = ('responsible_name','manager_name','addres','get_created_jalali')
     list_filter =('create','region','district',)
     list_display = ('create', 'responsible_name','region','district','get_created_jalali')
-    actions = [export_as_csv]
+    actions = [export_as_csv,customer_list]
 
 
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(FromAdmin, self).get_form(request, obj, **kwargs)
+        last_data=Form.objects.first()
+        form.base_fields['region'].initial = last_data.region
+        form.base_fields['district'].initial = last_data.district
+        form.base_fields['part'].initial = last_data.part
+        return form
