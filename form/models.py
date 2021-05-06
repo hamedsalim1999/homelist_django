@@ -69,7 +69,7 @@ class Form(models.Model):
     perentage = IntegerRangeField(min_value=0, max_value=100,default=0,verbose_name="درصد پیشرفت")
     start =  IntegerRangeField(min_value=1, max_value=5,default=0,verbose_name="امتیاز")
     def get_created_jalali(self):
-        return datetime2jalali(self.create).strftime('%y/%m/%d _ %H:%M:%S')
+        return datetime2jalali(self.create).strftime('%y/%m/%d')
     get_created_jalali.short_description = 'تاریخ شمسی ' 
     get_created_jalali.allow_tags = True
     def __str__(self):
