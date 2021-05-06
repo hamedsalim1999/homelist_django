@@ -1,10 +1,20 @@
 from django.contrib import admin
-from .models import Form
+from .models import Form ,RoleOne,RoleTwo,RoleThree
 import csv
 from django.http import HttpResponse
 from django.shortcuts import render
-
-
+@admin.action(description='نقش 1')
+@admin.register(RoleOne)
+class AdminRoleOne(admin.ModelAdmin):
+    pass
+@admin.action(description='نقش 2')
+@admin.register(RoleTwo)
+class AdminRoleTwo(admin.ModelAdmin):
+    pass
+@admin.action(description='نقش 3')
+@admin.register(RoleThree)
+class AdminRoleThree(admin.ModelAdmin):
+    pass
 @admin.action(description='چاپ')
 def customer_list(self,request, queryset):
     meta = self.model._meta
@@ -39,20 +49,24 @@ class FromAdmin(admin.ModelAdmin):
         ,
             ('type_of_activate'),
         
-            ('responsible_name','responsible_phone')
+            ('responsible_one_name', 'responsible_one_phone','responsible_one_rule')
         ,
         
-            ('manager_name','manager_phone')
+            ('responsible_two_name', 'responsible_two_phone','responsible_two_rule')
+        ,
+           
+            ('responsible_three_name', 'responsible_three_phone','responsible_three_rule')
         ,
         
             ('addres')
-        
+        ,
+        ('perentage', 'start')
         
         
     )
-    search_fields = ('responsible_name','manager_name','addres','get_created_jalali')
+    search_fields = ('addres','get_created_jalali','responsible_one_name','responsible_two_name')
     list_filter =('create','region','district',)
-    list_display = ('create', 'responsible_name','region','district','get_created_jalali')
+    list_display = ('create', 'region','district','get_created_jalali','responsible_one_name')
     actions = [export_as_csv,customer_list]
 
 
