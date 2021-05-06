@@ -33,60 +33,70 @@
 
 {% for i in form %}
 <div class="card">
-  <div class="row g-3">
-    <div class="col-md-4" style="width: 25%;">
-      <label for="inputEmail4" class="form-label">شماره سند:</label>
-      <input type="number" class="form-control" placeholder="{{i.id}}" disabled>
-    </div>
-    <div class="col-md-4" style="width: 25%;">
-      <label for="inputEmail4" class="form-label">تاریخ:</label>
-      <input type="number" class="form-control" placeholder="{{i.get_created_jalali}}" disabled>
-    </div>
+  <div class="row ">
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item">شماره سند:</li>
+      <li class="list-group-item">{{i.id}}</li>
+      <li class="list-group-item">تاریخ:</li>
+      <li class="list-group-item">{{i.get_created_jalali}}</li>
+      <li class="list-group-item">درصد پیشرفت :</li>
+      <li class="list-group-item">{{i.perentage}}</li>
+      <li class="list-group-item">امتیاز :</li>
+      <li class="list-group-item">{{i.start}}</li>
 
-    <div class="col-md-4" style="width: 25%;">
-      <label for="inputEmail4" class="form-label">منطقه شهرداری:</label>
-      <input type="number" class="form-control" placeholder="{{i.region}}" disabled>
-    </div>
-    <div class="col-md-4" style="width: 25%;">
-      <label for="inputEmail4" class="form-label">ناحیه شهرداری :</label>
-      <input type="number" class="form-control" placeholder="{{i.district}}" disabled>
-    </div>
-    <div class="col-md-4" style="width: 25%;">
-      <label for="inputEmail4" class="form-label">بخش شهر داری :</label>
-      <input type="number" class="form-control" placeholder="{{i.part}}" disabled>
-    </div>
-    <div class="col-md-4" style="width: 25%;">
-      <label for="inputEmail4" class="form-label">نوع فعالیت:</label>
-      <input type="string" class="form-control" placeholder="{{i.get_type_of_activate_display}}" disabled>
-    </div>
-    <div class="col-md-4" style="width: 25%;">
-      <label for="inputEmail4" class="form-label">نام مسئول:</label>
-      <input type="string" class="form-control" placeholder="{{i.responsible_name}}" disabled>
-    </div>
-    <div class="col-md-4" style="width: 25%;">
-      <label for="inputEmail4" class="form-label">شماره تماس مسئول:</label>
-      <input type="string" class="form-control" placeholder="{{i.responsible_phone}}" disabled>
-    </div>
-    <div class="col-md-4" style="width: 25%;">
-      <label for="inputEmail4" class="form-label">نام مدیر:</label>
-      <input type="string" class="form-control" placeholder="{{i.manager_name}}" disabled>
-    </div>
-    <div class="col-md-4" style="width: 25%;">
-      <label for="inputEmail4" class="form-label">شماره تماس مدیر:</label>
-      <input type="string" class="form-control" placeholder="{{i.manager_phone}}" disabled>
-    </div>
-    <div class="col-md-12" style="width: 100%;">
-      <label for="inputEmail4" class="form-label">نشانی:</label>
-      <input class="form-control" placeholder="{{i.addres}}" style="height: 100px" disabled>
-    </div>
+      <li class="list-group-item"></li>
+    </ul>
+
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item">منطقه شهرداری:</li>
+      <li class="list-group-item">{{i.region}}</li>
+      <li class="list-group-item">ناحیه شهرداری:</li>
+      <li class="list-group-item">{{i.district}}</li>
+      <li class="list-group-item">بخش شهرداری :</li>
+      <li class="list-group-item">{{i.part}}</li>
+      <li class="list-group-item">نوع فعالیت :</li>
+      <li class="list-group-item">{{i.get_type_of_activate_display}}</li>
+      <li class="list-group-item"></li>
+    </ul>
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item">نام مسئول:</li>
+      <li class="list-group-item">{{i.responsible_one_name}}</li>
+      <li class="list-group-item">شماره تماس مسئول:</li>
+      <li class="list-group-item">{{i.responsible_one_phone}}</li>
+      <li class="list-group-item">نقش مسئول :</li>
+      <li class="list-group-item">{{i.responsible_one_rule}}</li>
+      <li class="list-group-item"></li>
+    </ul>
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item">نام مسئول:</li>
+      <li class="list-group-item">{{i.responsible_two_name}}</li>
+      <li class="list-group-item">شماره تماس مسئول:</li>
+      <li class="list-group-item">{{i.responsible_two_phone}}</li>
+      <li class="list-group-item">نقش مسئول :</li>
+      <li class="list-group-item">{{i.responsible_two_rule}}</li>
+      <li class="list-group-item"></li>
+    </ul>
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item">نام مسئول:</li>
+      <li class="list-group-item">{{i.responsible_three_name}}</li>
+      <li class="list-group-item">شماره تماس مسئول:</li>
+      <li class="list-group-item">{{i.responsible_three_phone}}</li>
+      <li class="list-group-item">نقش مسئول :</li>
+      <li class="list-group-item">{{i.responsible_three_rule}}</li>
+      <li class="list-group-item"></li>
+    </ul>
+    <ul class="list-group list-group-horizontal" >
+      <li class="list-group-item">آدرس:</li>
+      <li class="list-group-item">{{i.addres}}</li>
+      <li class="list-group-item"></li>
+    </ul>
   </div>
-  
 </div>
 <br>
 <div class="card">
-  <div class="col-md-12" style="width: 100%; ">
+  <div class="col-md-12" style="width: 100%;">
     <input class="form-control" placeholder=""
-      style="height: 500px ; background: url({% static 'line.svg' %});-webkit-print-color-adjust: exact;" disabled>
+      style="height: 700px ; background: url({% static 'line.svg' %});-webkit-print-color-adjust: exact;" disabled>
   </div>
 </div>
 
