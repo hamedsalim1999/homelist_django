@@ -72,8 +72,11 @@ class FromAdmin(admin.ModelAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         form = super(FromAdmin, self).get_form(request, obj, **kwargs)
-        last_data=Form.objects.first()
-        form.base_fields['region'].initial = last_data.region
-        form.base_fields['district'].initial = last_data.district
-        form.base_fields['part'].initial = last_data.part
-        return form
+        try:
+            last_data=Form.objects.first()
+            form.base_fields['region'].initial = last_data.region
+            form.base_fields['district'].initial = last_data.district
+            form.base_fields['part'].initial = last_data.part
+            return form
+        except:
+            return form
