@@ -57,7 +57,7 @@ class Form(models.Model):
         verbose_name = "نوع فعالیت",
         )
     responsible_one_name = models.CharField(max_length=1024,verbose_name = " 1 نام مسئول" ,blank=True, null=True)
-    responsible_one_phone =  models.CharField(blank=True ,verbose_name="1 شماره تماس مسئول",max_length = 12,blank=True, null=True)
+    responsible_one_phone =  models.CharField(verbose_name="1 شماره تماس مسئول",max_length = 12,blank=True, null=True)
     responsible_one_rule = models.ForeignKey('RoleOne',on_delete=models.CASCADE,blank=True, null=True,verbose_name = "1نقش مسئول")
     responsible_two_name = models.CharField(max_length=1024,verbose_name = "2 نام مسئول",blank=True, null=True)
     responsible_two_phone =  models.CharField(verbose_name="2 شماره تماس مسئول",max_length = 12, blank=True, null=True)
