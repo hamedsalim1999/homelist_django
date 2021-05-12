@@ -35,60 +35,55 @@
 <div class="card">
   <div class="row ">
     <ul class="list-group list-group-horizontal">
-      <li class="list-group-item">شماره سند:</li>
-      <li class="list-group-item">{{i.id}}</li>
-      <li class="list-group-item">تاریخ:</li>
-      <li class="list-group-item">{{i.get_created_jalali}}</li>
-      <li class="list-group-item">درصد پیشرفت :</li>
-      <li class="list-group-item">{{i.perentage}}</li>
-      <li class="list-group-item">امتیاز :</li>
-      <li class="list-group-item">{{i.start}}</li>
+  
+      <li class="list-group-item">شماره سند: {{i.id}}</li>
 
-      <li class="list-group-item"></li>
+      <li class="list-group-item">تاریخ: {{i.get_created_jalali}}</li>
+
+      <li class="list-group-item">درصد پیشرفت: {{i.perentage}}</li>
+
+      <li class="list-group-item">امتیاز :{{i.start}}</li>
+
     </ul>
 
     <ul class="list-group list-group-horizontal">
-      <li class="list-group-item">منطقه شهرداری:</li>
-      <li class="list-group-item">{{i.region}}</li>
-      <li class="list-group-item">ناحیه شهرداری:</li>
-      <li class="list-group-item">{{i.district}}</li>
-      <li class="list-group-item">بخش شهرداری :</li>
-      <li class="list-group-item">{{i.part}}</li>
-      <li class="list-group-item">نوع فعالیت :</li>
-      <li class="list-group-item">{{i.get_type_of_activate_display}}</li>
-      <li class="list-group-item"></li>
+      <li class="list-group-item">منطقه شهرداری:{{i.region}}</li>
+
+      <li class="list-group-item">ناحیه شهرداری:{{i.district}}</li>
+
+      <li class="list-group-item">بخش شهرداری :{{i.part}}</li>
+
+      <li class="list-group-item">نوع فعالیت : {{i.get_type_of_activate_display}}</li>
+
     </ul>
-    {% if responsible_one_name%}
+    {% if i.responsible_one_name %}
     <ul class="list-group list-group-horizontal">
-      <li class="list-group-item">نام مسئول:</li>
-      <li class="list-group-item">{{i.responsible_one_name}}</li>
-      <li class="list-group-item">شماره تماس مسئول:</li>
-      <li class="list-group-item">{{i.responsible_one_phone}}</li>
-      <li class="list-group-item">نقش مسئول :</li>
-      <li class="list-group-item">{{i.responsible_one_rule}}</li>
-      <li class="list-group-item"></li>
+      <li class="list-group-item">نام مسئول:{{i.responsible_one_name}}</li>
+
+      <li class="list-group-item">شماره تماس مسئول:{{i.responsible_one_phone}}</li>
+
+      <li class="list-group-item">نقش مسئول :{{i.responsible_one_rule}}</li>
+
     </ul>
     {% endif %}
-    {% if responsible_two_name %}
+    {% if i.responsible_two_name %}
     <ul class="list-group list-group-horizontal">
-      <li class="list-group-item">نام مسئول:</li>
-      <li class="list-group-item">{{i.responsible_two_name}}</li>
-      <li class="list-group-item">شماره تماس مسئول:</li>
-      <li class="list-group-item">{{i.responsible_two_phone}}</li>
-      <li class="list-group-item">نقش مسئول :</li>
-      <li class="list-group-item">{{i.responsible_two_rule}}</li>
-      <li class="list-group-item"></li>
+      <li class="list-group-item">نام مسئول:{{i.responsible_two_name}}</li>
+
+      <li class="list-group-item">شماره تماس مسئول:{{i.responsible_two_phone}}</li>
+
+      <li class="list-group-item">نقش مسئول :{{i.responsible_two_rule}}</li>
+
     </ul>
     {% endif %}
-    {% if responsible_three_name %}
+    {% if i.responsible_three_name %}
     <ul class="list-group list-group-horizontal">
-      <li class="list-group-item">نام مسئول:</li>
-      <li class="list-group-item">{{i.responsible_three_name}}</li>
-      <li class="list-group-item">شماره تماس مسئول:</li>
-      <li class="list-group-item">{{i.responsible_three_phone}}</li>
-      <li class="list-group-item">نقش مسئول :</li>
-      <li class="list-group-item">{{i.responsible_three_rule}}</li>
-      <li class="list-group-item"></li>
+      <li class="list-group-item">نام مسئول: {{i.responsible_three_name}}</li>
+
+      <li class="list-group-item">شماره تماس مسئول: {{i.responsible_three_phone}}</li>
+
+      <li class="list-group-item">نقش مسئول :{{i.responsible_three_rule}}</li>
+
     </ul>
     {% endif %}
       
