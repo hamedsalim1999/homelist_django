@@ -36,14 +36,6 @@ class RoleThree(models.Model):
         verbose_name_plural = 'سمت ها'
     def __str__(self):
         return self.role_name
-class IntegerRangeField(models.IntegerField):
-    def __init__(self, verbose_name=None, name=None, min_value=None, max_value=None, **kwargs):
-        self.min_value, self.max_value = min_value, max_value
-        models.IntegerField.__init__(self, verbose_name, name, **kwargs)
-    def formfield(self, **kwargs):
-        defaults = {'min_value': self.min_value, 'max_value':self.max_value}
-        defaults.update(kwargs)
-        return super(IntegerRangeField, self).formfield(**defaults)
 
 class Form(models.Model):
     id = models.AutoField(primary_key=True)
@@ -66,8 +58,8 @@ class Form(models.Model):
     responsible_three_phone =  models.CharField(verbose_name="3 شماره تماس مسئول",max_length = 12, blank=True, null=True)
     responsible_three_rule = models.ForeignKey('RoleThree',on_delete=models.CASCADE,blank=True, null=True ,verbose_name = "3نقش مسئول")
     addres = models.TextField(verbose_name = "نشانی")
-    perentage = IntegerRangeField(min_value=0, max_value=100,default=0,verbose_name="درصد پیشرفت")
-    start =  IntegerRangeField(min_value=1, max_value=5,default=0,verbose_name="امتیاز")
+    perentage = models.CharField(max_length=1024,verbose_name="درصد پیشرفت")
+    start =  models.CharField(max_length=1024,verbose_name="امتیاز")
     def get_created_jalali(self):
         return datetime2jalali(self.create).strftime('%y/%m/%d')
     get_created_jalali.short_description = 'تاریخ شمسی ' 
