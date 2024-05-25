@@ -1,18 +1,28 @@
 version: '3'
 
 services:
-  web:
+  web1:
     build: .
-    command: gunicorn --bind :8000 --workers 3 core.wsgi
+    command: gunicorn --bind :8001 --workers 3 core.wsgi
     volumes:
       - .:/code
     expose:
-      - 8000
+      - 8001
     env_file:
       - .env
     depends_on:
       - db
-
+  web2:
+    build: .
+    command: gunicorn --bind :8002 --workers 3 core.wsgi
+    volumes:
+      - .:/code
+    expose:
+      - 8002
+    env_file:
+      - .env
+    depends_on:
+      - db
   db:
     image: postgres:13
     volumes:
