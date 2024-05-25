@@ -39,7 +39,8 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
     depends_on:
-      - web
+      - web1
+      - web2
 
 volumes:
   postgres_data:
